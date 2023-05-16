@@ -1,0 +1,70 @@
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.company_id,
+        u1_0.birth_date,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.roles,
+        u1_0.username 
+
+    from
+        public.users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.languages,
+        p1_0.street,
+        u1_0.id,
+        u1_0.company_id,
+        u1_0.birth_date,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.roles,
+        u1_0.username 
+
+    from
+        Profile p1_0 
+    left join
+        public.users u1_0 
+&            on u1_0.id=p1_0.user_id 
+    where
+        p1_0.user_id=?
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.name 
+
+    from
+        Company c1_0 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        l1_0.company_id,
+        l1_0.description,
+        l1_0.lang 
+
+    from
+        company_locale l1_0 
+    where
+        l1_0.company_id=?
+Hibernate: 
+    select
+        u1_0.user_id,
+        u1_0.id,
+        c1_0.id,
+        c1_0.name,
+        u1_0.created_at,
+        u1_0.created_by 
+
+    from
+        users_chat u1_0 
+    left join
+        Chat c1_0 
+&            on c1_0.id=u1_0.chat_id 
+    where
+        u1_0.user_id=?
+˜User(id=1, personalInfo=PersonalInfo(firstname=Petr, lastname=Petrov, birthDate=Birthday[birthDate=2000-01-19]), username=petr3@gmail.com, roles=null)
